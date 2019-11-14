@@ -1,0 +1,39 @@
+// hashmapping: store the position of linknode and linknode
+// true: when the next listnode of the current node less than this node(position)
+/**
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        Map<ListNode,Integer> map = new HashMap<>();
+        if(head == null){
+            return false;
+        }
+        ListNode current = head;
+        map.put(current,0);
+        while(current.next != null){
+            if(map.containsKey(current.next)){
+                return true;
+            }
+            map.put(current.next,map.get(current)+1);
+            current = current.next; 
+        }
+        return false;
+    }
+}
+*/
+
+// correct version
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+       // Map<ListNode,Integer> map = new HashMap<>();
+        Set<ListNode> set = new Hashset<>();
+        ListNode current = head;
+        while(current != null){
+            if(set.contains(current)){
+                return true;
+            }
+            set.add(current);
+            current = current.next; 
+        }
+        return false;
+    }
+}

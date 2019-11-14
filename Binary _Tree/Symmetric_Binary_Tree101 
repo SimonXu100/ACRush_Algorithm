@@ -1,0 +1,25 @@
+//错误答案
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        return sysmmetric_val(root,root);
+    }
+    public boolean sysmmetric_val(TreeNode nodeLeft, TreeNode nodeRight){
+      if(nodeLeft == null && nodeRight == null){
+          return true;
+      }
+      if(nodeLeft == null || nodeRight  == null){
+          return false;
+      }
+      
+      return (nodeLeft.val == nodeRight.val)&&sysmmetric_val(nodeLeft.left,nodeRight.right)&& sysmmetric_val(nodeLeft.right,nodeRight.left);
+    }
+}

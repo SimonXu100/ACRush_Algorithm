@@ -1,0 +1,59 @@
+1 String
+
+String substring(int beginIndex)
+String substring(int beginIndex, int endIndex)
+
+
+Map<String, String> = new Hashmap<String,String>(){
+        
+}
+
+
+calculation between strings
++
+
+indexOf
+public int indexOf(int ch )
+
+或
+
+public int indexOf(int ch, int fromIndex)
+
+或
+
+int indexOf(String str)
+
+或
+
+int indexOf(String str, int fromIndex)
+
+
+
+
+
+
+
+
+2 PriorityQueue: 最小堆
+//定义一个优先队列或者最小堆
+        //按照每个方块接了雨水后的高度排序
+        PriorityQueue<Cell> queue = new PriorityQueue(
+            new Comparator<Cell>(){
+                public int compare(Cell a, Cell b){
+                    return a.height - b.height;
+                }
+            }
+        );
+
+
+
+3 Stack
+Stack<> stack = new Stack<>()
+stack.peek(): return element
+stack.pop(): return element
+stack.push(): return element
+
+
+
+
+

@@ -1,0 +1,61 @@
+// 13指针法
+//1 统计最短字符串minimum,以此做判断边界
+//2 [0，minimum] 返回发现不同直接返回
+//3 minimum == 0 需要做判断的特殊处理
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+     String result = "";
+       // the flag of whether there is a anomaly with the same position
+       boolean flag = false;
+       // the minimum length of string elements
+       if(strs.length == 0){
+           return result;
+       }
+        int minimum = strs[0].length();
+       for(int k = 0; k<strs.length;k++){
+           
+           if(minimum >strs[k].length()){
+               minimum = strs[k].length();
+           }
+       }
+       for( int i = 0;i< minimum ;i++){
+           for(int j = 0; j< num-1;j++){
+               if(strs[j].charAt(i) != strs[j+1].charAt(i)){
+                   flag = true;
+                   break;
+               }
+           }
+           if(flag == true ){
+        
+               result =  strs[0].substring(0,i);
+               break;
+           }
+           result = strs[0].substring(0,i+1);
+       }
+      return result; 
+    }
+}
+
+// or 
+        int num = strs.length;
+       String result = "";
+       boolean flag = false;
+       if(strs.length == 0){
+           return result;
+       }
+       int minimum = strs[0].length();
+       for(int k = 0; k<strs.length;k++){
+           
+           if(minimum >strs[k].length()){
+               minimum = strs[k].length();
+           }
+       }
+       for( int i = 0;i< minimum ;i++){
+           for(int j = 0; j< num-1;j++){
+               if(strs[j+1].length() == 0) return "";
+               if(strs[j].charAt(i) != strs[j+1].charAt(i)){
+                  return strs[0].substring(0,i);
+               }
+           }
+       }
+      return strs[0].substring(0,minimum); 

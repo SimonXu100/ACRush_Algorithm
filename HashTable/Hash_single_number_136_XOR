@@ -1,0 +1,12 @@
+// 异或
+// 满足结合律，相同数字偶数次结合为0
+class Solution {
+    public int singleNumber(int[] nums) {
+        int ans = 0;
+        for(int i:nums){
+           ans ^= i;
+        }    
+        return ans;
+    } 
+    
+}

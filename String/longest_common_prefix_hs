@@ -1,0 +1,15 @@
+// horizontal scanning
+// 分解
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+     String prefix = "";
+     if(strs.length == 0) return "";
+     for(int i=1;i<strs.length;i++){
+          while(strs[i].indexOf(prefix)!=0){
+            preflix = prefix.substring(0,prefix.length()-1);
+            if(prefix.isEmpty()) return "";
+          }
+     }
+     return prefix;
+    }
+}

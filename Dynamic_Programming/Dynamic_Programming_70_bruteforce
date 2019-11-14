@@ -1,0 +1,31 @@
+// recursive
+// complexity: 2^n
+class Solution {
+   /** public int climbStairs(int n) {
+        //暴力，树形递归： 2^n 效果很差
+    }
+
+    public int climbStairs(int i, int n ){
+      if(i>n) return 0;
+      if(i==n)   return 1;
+      return climbStairs(i+1,n)+climbStairs(i+2,n);
+     }
+     */
+
+ // 记忆的递归公式，记住中间结果   （n / n） 
+ public int climbStairs(int n) {
+        int[] memo =  new int[n+1];
+        return climbStairs(0,n,memo);
+    }
+
+    public int climbStairs(int i, int n, int[] memo){
+      if(i>n) return 0;
+      if(i==n)   return 1;
+      if(memo[i]>0) return memo[i];
+      memo[i] = climbStairs(i+1,n,memo)+climbStairs(i+2,n,memo);
+      return memo[i];
+     }
+     
+
+}
+
