@@ -1,0 +1,27 @@
+pending: Zigzag conversion： leetcode 6
+
+无论是sub操、concat还是replace操作都不是在原有的字符串上进行的，而是重新生成了一个新的字符串对象。也就是说进行这些操作后，最原始的字符串并没有被改变
+
+StringBuilder: 对字符串进行多次操作
+相关函数:
+append(string/char)
+toString()
+setCharAt(int i, char c)
+//在指定位置之前插入字符
+insert(int offset,String str/char c)
+delete(int startIndex,int endIndex)
+
+StringBuilder str = new StringBuilder();
+
+
+Aug 23
+面试高频题精讲2
+
+区间变形1
+
+1 merge intervals
+leetcode56
+sort+(开始时间与结束时间比较)
+
+2 无重叠区间
+leetcode

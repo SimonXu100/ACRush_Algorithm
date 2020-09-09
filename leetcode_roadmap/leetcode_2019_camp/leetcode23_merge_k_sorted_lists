@@ -1,0 +1,62 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+ // method 1  brute force:
+ // 合成一个大数组，然后对数组排序. 最后输出
+ // running time: O(NlgN)
+
+
+ // method 2:
+ // k个一起比较， 然后结合
+ // running time: O(kN)
+
+ // method 3
+ // 逐一两两合并
+ // running time: O(kN)
+
+// method 4
+// 迭代的方法
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        int amount = lists.length;
+        if(amount==0) return null;
+        if(amount == 1) return lists[0];
+        if(amount % 2 == 1){
+            // first merge the the last two lists
+            lists[amount-2] = mergeTwoLists(lists[amount-2], lists[amount-1]);
+            amount = amount -1;
+        }
+        // divide and conquer
+        int interval  = 1;
+        while(interval < amount){
+            for(int i =0; i<amount-interval; i = i+interval*2){
+                lists[i] = mergeTwoLists(lists[i], lists[i+interval]);
+            }
+            interval = interval * 2;
+        }
+        return lists[0];
+    }
+
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2){
+        ListNode head = new ListNode(-1);
+        ListNode cur = head;
+        while(l1 != null && l2 != null){
+            if(l1.val <= l2.val){
+                cur.next = l1;
+                l1 = l1.next;
+            }
+            else{
+                cur.next = l2;
+                l2 = l2.next;
+            }
+            cur = cur.next;
+        }
+        cur.next = l1 !=null? l1:l2;
+        return head.next;
+    }
+}
